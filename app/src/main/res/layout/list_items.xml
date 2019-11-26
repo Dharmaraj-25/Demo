@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<com.mikhaellopez.circularimageview.CircularImageView
+    android:id="@+id/image"
+    android:layout_width="100dp"
+    android:layout_height="100dp"
+
+    app:civ_border_color="#EEEEEE"
+    app:civ_border_width="4dp"
+    app:civ_shadow="true"
+    app:civ_shadow_radius="10"
+    app:civ_shadow_color="#8BC34A"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/image"
+        android:orientation="vertical">
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/header"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:textSize="25dp"
+            android:hint="name"
+            android:paddingRight="10dp"
+            android:gravity="center_vertical"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/subject"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:textSize="25dp"
+            android:hint="sbject"
+            android:paddingRight="10dp"
+            android:gravity="center_vertical"/>
+
+
+    </LinearLayout>
+</RelativeLayout>
