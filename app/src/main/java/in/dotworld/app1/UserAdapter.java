@@ -1,10 +1,12 @@
 package in.dotworld.app1;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,10 +35,16 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull UserAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull UserAdapter.ViewHolder holder, final int position) {
         holder.firstname.setText(data.get(position).getFirst_name());
-        holder.lastname.setText(data.get(position).getLast_name());
-        holder.mail.setText(data.get(position).getEmail());
+        holder.firstname.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(mContext, ""+data.get(position).getEmail(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        //holder.lastname.setText(data.get(position).getLast_name());
+        //holder.mail.setText(data.get(position).getEmail());
     }
 
     @Override
@@ -54,16 +62,16 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
             //itemView.setOnClickListener(this);
         }
 
-       // @Override
-      /*  public void onClick(View v) {
+      /* @Override
+        public void onClick(View v) {
             int itemPosition = getLayoutPosition();
-            AppCompatActivity activity = (AppCompatActivity) v.getContext();
+            Activity activity = (Activity) v.getContext();
             Details_fragment details_fragment=new Details_fragment();
-            Bundle bundle=new Bundle();
+           *//* Bundle bundle=new Bundle();
             bundle.putString("name",""+data.get(itemPosition).getFirstName());
             bundle.putString("lastname",""+data.get(itemPosition).getLastName());
             bundle.putString("mail",""+data.get(itemPosition).getEmail());
-            details_fragment.setArguments(bundle);
+            details_fragment.setArguments(bundle);*//*
             activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,details_fragment).addToBackStack(null).commit();
 
 
